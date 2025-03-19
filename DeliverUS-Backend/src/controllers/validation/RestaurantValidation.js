@@ -24,7 +24,9 @@ const create = [
   }).withMessage('Please upload an image with format (jpeg, png).'),
   check('logo').custom((value, { req }) => {
     return checkFileMaxSize(req, 'logo', maxFileSize)
-  }).withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB')
+  }).withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB'),
+  check('isPinned').optional().isBoolean(),
+  check('pinnedAt').optional().isDate()
 ]
 const update = [
   check('name').exists().isString().isLength({ min: 1, max: 255 }).trim(),
@@ -48,7 +50,9 @@ const update = [
   }).withMessage('Please upload an image with format (jpeg, png).'),
   check('logo').custom((value, { req }) => {
     return checkFileMaxSize(req, 'logo', maxFileSize)
-  }).withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB')
+  }).withMessage('Maximum file size of ' + maxFileSize / 1000000 + 'MB'),
+  check('isPinned').optional().isBoolean(),
+  check('pinnedAt').optional().isDate()
 ]
 
 export { create, update }

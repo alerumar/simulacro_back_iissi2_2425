@@ -56,6 +56,14 @@ module.exports = {
         ],
         defaultValue: 'offline'
       },
+      isPinned: {
+        allowNull: false,
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
+      pinnedAt: {
+        type: Sequelize.DATE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
